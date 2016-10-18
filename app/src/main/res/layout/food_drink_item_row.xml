@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <LinearLayout
+        style="@style/NonWidthStyle"
+        android:layout_marginLeft="@dimen/item_image_left_margin"
+        android:layout_marginTop="@dimen/item_image_top_margin"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/item_padding_bottom"
+        android:paddingTop="@dimen/item_padding_top">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/NonWidthStyle"
+        android:layout_marginLeft="@dimen/content_item_margin_left"
+        android:layout_marginRight="@dimen/content_item_margin_right"
+        android:layout_marginTop="@dimen/content_item_margin_top"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="@dimen/item_title_size"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"/>
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>
