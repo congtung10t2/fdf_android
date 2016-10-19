@@ -10,4 +10,15 @@
     <dimen name="item_image_left_margin">5dp</dimen>
     <dimen name="content_item_margin_right">10dp</dimen>
     <dimen name="content_item_margin_left">10dp</dimen>
+    <dimen name="image_item_width">205dp</dimen>
+    <dimen name="image_item_height">156dp</dimen>
+    <dimen name="item_title_detail_size">20sp</dimen>
+    <dimen name="btn_add_to_cart_margin_top">110dp</dimen>
+    <dimen name="text_item_price_margin_top">40dp</dimen>
+    <dimen name="item_price_size">20sp</dimen>
+    <dimen name="item_desc_size">20sp</dimen>
+    <dimen name="item_desc_margin_top">35dp</dimen>
+    <dimen name="text_item_desc_width">356dp</dimen>
+    <dimen name="text_item_desc_height">138dp</dimen>
+    <dimen name="input_comment_margin_bottom">50dp</dimen>
 </resources>

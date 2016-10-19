@@ -1,21 +1,47 @@
 package com.framgia.fdf_android.data;
 
-import android.graphics.Bitmap;
+import android.databinding.BindingAdapter;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.widget.ImageView;
 
 /**
  * Created by framgia on 19/10/2016.
  */
-public class FoodDrinkItem {
+public class FoodDrinkItem implements Parcelable {
+    public static final Creator<FoodDrinkItem> CREATOR = new Creator<FoodDrinkItem>() {
+        @Override
+        public FoodDrinkItem createFromParcel(Parcel in) {
+            return new FoodDrinkItem(in);
+        }
+
+        @Override
+        public FoodDrinkItem[] newArray(int size) {
+            return new FoodDrinkItem[size];
+        }
+    };
     private String title;
     private String description;
     private String price;
-    private Bitmap image;
+    private int resImage;
 
-    public FoodDrinkItem(String title, String description, String price, Bitmap image) {
+    public FoodDrinkItem(String title, String description, String price, int resImage) {
         this.title = title;
         this.description = description;
-        this.image = image;
+        this.resImage = resImage;
         this.price = price;
+    }
+
+    protected FoodDrinkItem(Parcel in) {
+        title = in.readString();
+        description = in.readString();
+        price = in.readString();
+        resImage = in.readInt();
+    }
+
+    @BindingAdapter("imageResource")
+    public static void setImageResource(ImageView imageView, int resource) {
+        imageView.setImageResource(resource);
     }
 
     public String getPrice() {
@@ -34,8 +60,8 @@ public class FoodDrinkItem {
         this.title = name;
     }
 
-    public Bitmap getImage() {
-        return image;
+    public int getResImage() {
+        return resImage;
     }
 
     public String getDescription() {
@@ -44,5 +70,18 @@ public class FoodDrinkItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(price);
+        dest.writeInt(resImage);
     }
 }
