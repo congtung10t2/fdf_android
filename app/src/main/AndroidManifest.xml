@@ -5,12 +5,14 @@
     <application
         android:name=".FoodDrinkApplication"
         android:allowBackup="true"
-        android:screenOrientation="portrait"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.FoodDrinkActivity">
+        <activity
+            android:name=".ui.FoodDrinkActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

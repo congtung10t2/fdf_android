@@ -4,8 +4,7 @@
     <data>
 
         <variable
-            name="item"
-            type="com.framgia.fdf_android.data.FoodDrinkItem"/>
+            name="item" type="com.framgia.fdf_android.data.FoodDrinkItem"/>
     </data>
 
     <FrameLayout
