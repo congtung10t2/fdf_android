@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
     private FoodDrinkAdapter adapter;
     private List<FoodDrinkItem> foodAndDrinks = new ArrayList<>();
     private RecyclerView recyclerView;
+    private NavigationView navigationView;
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,8 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
             R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -64,6 +68,11 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_category:
+                drawer.openDrawer(GravityCompat.START);
+                return true;
+        }
         return false;
     }
 }
