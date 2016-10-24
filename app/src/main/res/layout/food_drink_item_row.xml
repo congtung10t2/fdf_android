@@ -16,7 +16,7 @@
         android:paddingTop="@dimen/item_padding_top">
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/image_item_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"/>
@@ -31,7 +31,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_title"
+            android:id="@+id/text_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -39,13 +39,13 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/item_description"
+            android:id="@+id/text_item_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"/>
 
         <TextView
-            android:id="@+id/item_price"
+            android:id="@+id/text_item_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
