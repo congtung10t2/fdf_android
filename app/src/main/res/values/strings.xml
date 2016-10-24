@@ -2,4 +2,12 @@
     <string name="app_name">Food and Drink</string>
     <string name="add_comment">Add comment...</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="shop">Shop</string>
+    <string name="features">Features</string>
+    <string name="category">Category</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <string name="account">Account</string>
 </resources>
