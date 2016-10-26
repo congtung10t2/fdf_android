@@ -10,4 +10,14 @@
     <string name="cart">Cart</string>
     <string name="profile">Profile</string>
     <string name="account">Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_shop">Top shop</string>
+    <string name="top_product">Top product</string>
+    <string name="che">Chè</string>
+    <string name="kem">Kem</string>
+    <string name="title_test">title</string>
+    <string name="desc_test">desc</string>
+    <string name="price_test">1000$</string>
 </resources>

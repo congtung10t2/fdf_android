@@ -5,4 +5,5 @@ package com.framgia.fdf_android.data;
  */
 public class Constants {
     public static final String ITEM_INDEX_KEY = "FoodDrinkItem";
+    public static final int NUMBER_OF_TEST = 10;
 }
