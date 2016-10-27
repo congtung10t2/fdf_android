@@ -22,8 +22,7 @@
             imageResource="@{item.resImage}"
             android:layout_width="@dimen/image_item_width"
             android:layout_height="@dimen/image_item_height"
-            android:layout_gravity="left|top"
-            android:background="@drawable/ic_demo_food"/>
+            android:layout_gravity="left|top"/>
 
         <TextView
             android:id="@+id/text_item_title"

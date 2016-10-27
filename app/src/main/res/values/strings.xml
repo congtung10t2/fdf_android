@@ -10,4 +10,11 @@
     <string name="cart">Cart</string>
     <string name="profile">Profile</string>
     <string name="account">Account</string>
+    <string name="top_shop">Top shop</string>
+    <string name="top_product">Top product</string>
+    <string name="gruel">Gruel</string>
+    <string name="cream">Cream</string>
+    <string name="title_test">title</string>
+    <string name="desc_test">desc</string>
+    <string name="price_test">1000$</string>
 </resources>
