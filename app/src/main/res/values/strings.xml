@@ -17,4 +17,9 @@
     <string name="title_test">title</string>
     <string name="desc_test">desc</string>
     <string name="price_test">1000$</string>
+    <string name="name_test">Hoàng Công Tùng</string>
+    <string name="email_test">hoang.cong.tung@framgia.com</string>
+    <string name="avatar">avatar</string>
+    <string name="change_password">Change password</string>
+    <string name="logout">Logout</string>
 </resources>

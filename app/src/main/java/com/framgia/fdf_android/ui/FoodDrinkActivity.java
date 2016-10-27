@@ -29,6 +29,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private RecyclerView contentFoodDrink;
+    private boolean profileView = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,14 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         contentFoodDrink.setAdapter(adapter);
     }
 
+    public void onProfileShow(View view) {
+        navigationView.getMenu().setGroupVisible(R.id.gr_category_menu, profileView);
+        navigationView.getMenu().setGroupVisible(R.id.gr_feature_menu, profileView);
+        navigationView.getMenu().setGroupVisible(R.id.gr_profile, !profileView);
+        profileView = !profileView;
+        view.setRotation(view.getRotation() + Constants.INVERSE_DEGREES);
+    }
+
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(FoodDrinkActivity.this, FoodDrinkDetailActivity.class);
@@ -63,17 +72,26 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         startActivity(intent);
     }
 
+    public void onDetailItemClick(int itemId){
+        switch(itemId){
+            case R.id.nav_profile:
+                startActivity(new Intent(FoodDrinkActivity.this, ProfileViewActivity.class));
+                break;
+            default:
+        }
+    }
+
     public boolean onChangeNavigationItemState(NavigationView navigationView, MenuItem item) {
         boolean isChecked = item.isChecked();
         int groupId = getGroupIdFromTitleId(item.getItemId());
-        if(groupId != Constants.INVALID_GROUP_ID) {
+        if (groupId != Constants.INVALID_GROUP_ID) {
             item.setChecked(!isChecked);
             navigationView.getMenu().setGroupVisible(groupId, !isChecked);
         } else {
             item.setChecked(true);
+            onDetailItemClick(item.getItemId());
             drawer.closeDrawer(GravityCompat.START);
         }
-
         return true;
     }
 

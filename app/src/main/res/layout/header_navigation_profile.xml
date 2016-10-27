@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/nav_header_height"
+             android:background="@color/colorPrimary"
+             android:gravity="bottom"
+             android:orientation="vertical"
+             android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginTop="@dimen/profile_top_margin"
+        android:gravity="start"
+        android:paddingLeft="@dimen/profile_left_padding"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="@string/name_test"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+    <TextView
+        android:id="@+id/text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:gravity="start"
+        android:paddingLeft="@dimen/profile_left_padding"
+        android:text="@string/email_test"/>
+
+    <ImageView
+        android:id="@+id/image_avatar"
+        android:layout_width="@dimen/avatar_side_value"
+        android:layout_height="@dimen/avatar_side_value"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="@dimen/avatar_top_margin"
+        android:contentDescription="@string/avatar"
+        android:padding="@dimen/profile_left_padding"
+        android:src="@drawable/ic_demo_avatar"/>
+
+    <Button
+        android:id="@+id/profile_view"
+        android:layout_width="@dimen/ic_profile_view_side"
+        android:layout_height="@dimen/ic_profile_view_side"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="@dimen/ic_profile_view_margin_left"
+        android:layout_marginTop="@dimen/ic_profile_view_margin_top"
+        android:background="@drawable/ic_edit_profile"
+        android:onClick="onProfileShow"
+        android:padding="@dimen/profile_left_padding"/>
+
+</FrameLayout>
