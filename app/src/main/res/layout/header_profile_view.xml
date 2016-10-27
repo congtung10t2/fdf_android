@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"
+             android:background="@color/colorPrimary"
+             android:gravity="bottom"
+             android:orientation="vertical"
+             android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/image_avatar"
+        android:layout_width="@dimen/avatar_side_value"
+        android:layout_height="@dimen/avatar_side_value"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="@dimen/avatar_top_margin"
+        android:contentDescription="@string/avatar"
+        android:padding="@dimen/profile_left_padding"
+        android:src="@drawable/ic_demo_food"/>
+
+    <Button
+        android:id="@+id/btn_camera_cover"
+        android:layout_width="@dimen/camera_layout_size"
+        android:layout_height="@dimen/camera_layout_size"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="@dimen/camera_cover_right_margin"
+        android:background="@android:drawable/ic_menu_camera"/>
+
+    <Button
+        android:id="@+id/btn_camera_avt"
+        android:layout_width="@dimen/camera_layout_size"
+        android:layout_height="@dimen/camera_layout_size"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="left|bottom"
+        android:layout_marginLeft="@dimen/camera_avt_left_margin"
+        android:background="@android:drawable/ic_menu_camera"/>
+</FrameLayout>
