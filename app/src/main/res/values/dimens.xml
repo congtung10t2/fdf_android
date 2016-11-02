@@ -37,4 +37,6 @@
     <dimen name="camera_cover_right_margin">20dp</dimen>
     <dimen name="camera_avt_left_margin">27dp</dimen>
     <dimen name="profile_name_layout_padding">20dp</dimen>
+    <dimen name="btn_signin_margin_top">16dp</dimen>
+    <dimen name="zerodp">0dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.framgia.fdf_android.ui;
+package com.framgia.foodanddrink.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,10 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.framgia.fdf_android.R;
-import com.framgia.fdf_android.data.Constants;
-import com.framgia.fdf_android.data.FoodDrinkItem;
-import com.framgia.fdf_android.utils.DataTests;
+import com.framgia.foodanddrink.R;
+import com.framgia.foodanddrink.data.Constants;
+import com.framgia.foodanddrink.data.model.FoodDrinkItem;
+import com.framgia.foodanddrink.ui.adapter.FoodDrinkAdapter;
+import com.framgia.foodanddrink.utils.DataTests;
 
 import java.util.ArrayList;
 import java.util.List;

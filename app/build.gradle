@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.2"
     dataBinding.enabled = true
     defaultConfig {
-        applicationId "com.framgia.fdf_android"
+        applicationId "com.framgia.foodanddrink"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1

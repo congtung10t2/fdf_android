@@ -1,9 +1,9 @@
-package com.framgia.fdf_android.ui;
+package com.framgia.foodanddrink.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.framgia.fdf_android.R;
+import com.framgia.foodanddrink.R;
 
 public class ProfileViewActivity extends AppCompatActivity {
     @Override

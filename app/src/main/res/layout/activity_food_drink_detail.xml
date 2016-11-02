@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="item" type="com.framgia.fdf_android.data.FoodDrinkItem"/>
+            name="item" type="com.framgia.foodanddrink.data.model.FoodDrinkItem"/>
     </data>
 
     <FrameLayout
@@ -15,7 +15,7 @@
         android:paddingLeft="@dimen/activity_basic_horizontal_margin"
         android:paddingRight="@dimen/activity_basic_horizontal_margin"
         android:paddingTop="@dimen/activity_basic_vertical_margin"
-        tools:context="com.framgia.fdf_android.ui.FoodDrinkDetailActivity">
+        tools:context=".ui.activity.FoodDrinkDetailActivity">
 
         <ImageView
             android:id="@+id/image_item_detail"

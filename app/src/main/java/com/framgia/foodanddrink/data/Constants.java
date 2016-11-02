@@ -1,4 +1,4 @@
-package com.framgia.fdf_android.data;
+package com.framgia.foodanddrink.data;
 
 /**
  * Created by framgia on 20/10/2016.

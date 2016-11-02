@@ -1,11 +1,11 @@
-package com.framgia.fdf_android.utils;
+package com.framgia.foodanddrink.utils;
 
 import android.content.Context;
 
-import com.framgia.fdf_android.FoodDrinkApplication;
-import com.framgia.fdf_android.R;
-import com.framgia.fdf_android.data.Constants;
-import com.framgia.fdf_android.data.FoodDrinkItem;
+import com.framgia.foodanddrink.FoodDrinkApplication;
+import com.framgia.foodanddrink.R;
+import com.framgia.foodanddrink.data.Constants;
+import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.framgia.fdf_android;
+package com.framgia.foodanddrink;
 
 import android.app.Application;
 /**
