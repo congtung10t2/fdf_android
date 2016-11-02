@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -24,11 +25,13 @@ import java.util.List;
 
 public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAdapter
     .OnItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+    private static final int INVERSE_DEGREES = 180;
     private FoodDrinkAdapter adapter;
     private List<FoodDrinkItem> foodAndDrinks = new ArrayList<>();
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private RecyclerView contentFoodDrink;
+    private boolean profileView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,24 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         contentFoodDrink.setAdapter(adapter);
     }
 
+    public void onProfileShow(View view) {
+        onHideGroupItems();
+        Menu navigationMenu = navigationView.getMenu();
+        navigationMenu.setGroupVisible(R.id.gr_category_menu, profileView);
+        navigationMenu.setGroupVisible(R.id.gr_feature_menu, profileView);
+        navigationMenu.setGroupVisible(R.id.gr_profile, !profileView);
+        profileView = !profileView;
+        view.setRotation(view.getRotation() + INVERSE_DEGREES);
+    }
+
+    public void onHideGroupItems() {
+        Menu navigationMenu = navigationView.getMenu();
+        navigationMenu.setGroupVisible(R.id.gr_category, false);
+        navigationMenu.setGroupVisible(R.id.gr_feature, false);
+        navigationMenu.findItem(R.id.nav_feature).setChecked(false);
+        navigationMenu.findItem(R.id.nav_category).setChecked(false);
+    }
+
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(FoodDrinkActivity.this, FoodDrinkDetailActivity.class);
@@ -63,17 +84,27 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         startActivity(intent);
     }
 
+    public void onDetailItemClick(int itemId) {
+        switch (itemId) {
+            case R.id.nav_profile:
+                startActivity(new Intent(FoodDrinkActivity.this, ProfileViewActivity.class));
+                break;
+            default:
+                break;
+        }
+    }
+
     public boolean onChangeNavigationItemState(NavigationView navigationView, MenuItem item) {
         boolean isChecked = item.isChecked();
         int groupId = getGroupIdFromTitleId(item.getItemId());
-        if(groupId != Constants.INVALID_GROUP_ID) {
+        if (groupId != Constants.INVALID_GROUP_ID) {
             item.setChecked(!isChecked);
             navigationView.getMenu().setGroupVisible(groupId, !isChecked);
         } else {
             item.setChecked(true);
+            onDetailItemClick(item.getItemId());
             drawer.closeDrawer(GravityCompat.START);
         }
-
         return true;
     }
 

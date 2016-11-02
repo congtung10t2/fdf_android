@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_feature"
-        android:title="@string/features"/>
     <group
-        android:id="@+id/gr_feature"
-        android:checkableBehavior="single"
-        android:visible="false">
+        android:id="@+id/gr_feature_menu">
         <item
-            android:id="@+id/nav_top_shop"
-            android:title="@string/top_shop"/>
-        <item
-            android:id="@+id/nav_top_product"
-            android:title="@string/top_product"/>
-    </group>
+            android:id="@+id/nav_feature"
+            android:title="@string/features"/>
 
-    <item
-        android:id="@+id/nav_category"
-        android:title="@string/category"/>
+        <group
+            android:id="@+id/gr_feature"
+            android:checkableBehavior="single"
+            android:visible="false">
+            <item
+                android:id="@+id/nav_top_shop"
+                android:title="@string/top_shop"/>
+            <item
+                android:id="@+id/nav_top_product"
+                android:title="@string/top_product"/>
+        </group>
+    </group>
     <group
-        android:id="@+id/gr_category"
+        android:id="@+id/gr_category_menu">
+        <item
+            android:id="@+id/nav_category"
+            android:title="@string/category"/>
+        <group
+            android:id="@+id/gr_category"
+            android:checkableBehavior="single"
+            android:visible="false">
+            <item
+                android:id="@+id/nav_gruel"
+                android:title="@string/gruel"/>
+            <item
+                android:id="@+id/nav_cream"
+                android:title="@string/cream"/>
+        </group>
+    </group>
+    <group
+        android:id="@+id/gr_profile"
         android:checkableBehavior="single"
         android:visible="false">
         <item
-            android:id="@+id/nav_gruel"
-            android:title="@string/gruel"/>
+            android:id="@+id/nav_change_password"
+            android:title="@string/change_password"/>
         <item
-            android:id="@+id/nav_cream"
-            android:title="@string/cream"/>
+            android:id="@+id/nav_profile"
+            android:title="@string/profile"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/logout"/>
     </group>
 
 </menu>

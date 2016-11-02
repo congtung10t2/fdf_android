@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.framgia.fdf_android.ui.ProfileViewActivity">
+
+    <include
+        android:id="@+id/header_profile"
+        layout="@layout/header_profile_view"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout style="@style/LayoutProfile">
+
+                <TextView
+                    android:id="@+id/text_profile_name_title"
+                    style="@style/TextProfileTitle"
+                    android:text="@string/name_title"/>
+
+                <Button
+                    android:id="@+id/btn_edit_name"
+                    style="@style/EditProfileBtn"
+                    android:layout_gravity="right|center_vertical"/>
+
+                <TextView
+                    android:id="@+id/text_profile_name"
+                    style="@style/TextProfile"
+                    android:text="@string/name_test"/>
+            </FrameLayout>
+
+            <FrameLayout style="@style/LayoutProfile">
+
+                <TextView
+                    android:id="@+id/text_profile_phone_title"
+                    style="@style/TextProfileTitle"
+                    android:text="@string/phone_title"/>
+
+                <Button
+                    android:id="@+id/btn_edit_phone"
+                    style="@style/EditProfileBtn"
+                    android:layout_gravity="right|center_vertical"/>
+
+                <TextView
+                    android:id="@+id/text_profile_phone"
+                    style="@style/TextProfile"
+                    android:text="@string/phone_test"/>
+            </FrameLayout>
+
+            <FrameLayout style="@style/LayoutProfile">
+
+                <TextView
+                    android:id="@+id/text_profile_email_title"
+                    style="@style/TextProfileTitle"
+                    android:text="@string/email_title"/>
+
+                <Button
+                    android:id="@+id/btn_edit_email"
+                    style="@style/EditProfileBtn"
+                    android:layout_gravity="right|center_vertical"/>
+
+                <TextView
+                    android:id="@+id/text_profile_email"
+                    style="@style/TextProfile"
+                    android:text="@string/test_email"/>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
