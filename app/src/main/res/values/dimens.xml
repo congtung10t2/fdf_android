@@ -39,4 +39,5 @@
     <dimen name="profile_name_layout_padding">20dp</dimen>
     <dimen name="btn_signin_margin_top">16dp</dimen>
     <dimen name="zerodp">0dp</dimen>
+    <dimen name="add_btn_layout_margin_top">20dp</dimen>
 </resources>
