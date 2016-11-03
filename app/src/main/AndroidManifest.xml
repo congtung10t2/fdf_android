@@ -19,15 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.FoodDrinkDetailActivity">
-        </activity>
+        <activity android:name=".ui.activity.FoodDrinkDetailActivity"/>
         <activity
             android:name=".ui.activity.ProfileViewActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".ui.activity.RegisterActivity">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.activity.RegisterActivity"/>
+        <activity android:name=".ui.activity.LoginActivity"/>
     </application>
 
 </manifest>

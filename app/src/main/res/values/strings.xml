@@ -35,4 +35,8 @@
     <string name="last_name">Last Name</string>
     <string name="user_name">User name</string>
     <string name="condition">Accept with the condition</string>
+    <string name="email_or_username">Email or username</string>
+    <string name="sign_up">Sign up</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot password</string>
 </resources>
