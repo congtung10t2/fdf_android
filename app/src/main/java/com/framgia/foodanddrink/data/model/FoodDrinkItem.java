@@ -1,4 +1,4 @@
-package com.framgia.fdf_android.data;
+package com.framgia.foodanddrink.data.model;
 
 import android.databinding.BindingAdapter;
 import android.os.Parcel;

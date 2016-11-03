@@ -28,4 +28,11 @@
     <string name="phone_test">01690001230</string>
     <string name="email_title">Email</string>
     <string name="test_email">test@gmail.com</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="password_title">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="user_name">User name</string>
+    <string name="condition">Accept with the condition</string>
 </resources>
