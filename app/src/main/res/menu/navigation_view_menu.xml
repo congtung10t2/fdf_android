@@ -35,6 +35,12 @@
                 android:title="@string/cream"/>
         </group>
     </group>
+    <item
+        android:id="@+id/nav_shop"
+        android:title="@string/shops"/>
+    <item
+        android:id="@+id/nav_shop_manager"
+        android:title="@string/shop_management"/>
     <group
         android:id="@+id/gr_profile"
         android:checkableBehavior="single"
@@ -48,6 +54,9 @@
         <item
             android:id="@+id/nav_logout"
             android:title="@string/logout"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/settings"/>
     </group>
 
 </menu>

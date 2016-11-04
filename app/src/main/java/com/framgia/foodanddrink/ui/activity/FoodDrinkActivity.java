@@ -68,6 +68,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         navigationMenu.setGroupVisible(R.id.gr_profile, !profileView);
         profileView = !profileView;
         view.setRotation(view.getRotation() + INVERSE_DEGREES);
+        view.setVisibility(View.VISIBLE);
     }
 
     public void onHideGroupItems() {
@@ -75,6 +76,10 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         navigationMenu.setGroupVisible(R.id.gr_category, false);
         navigationMenu.setGroupVisible(R.id.gr_feature, false);
         navigationMenu.findItem(R.id.nav_feature).setChecked(false);
+        navigationMenu.findItem(R.id.nav_shop).setChecked(false);
+        navigationMenu.findItem(R.id.nav_shop).setVisible(profileView);
+        navigationMenu.findItem(R.id.nav_shop_manager).setVisible(profileView);
+        navigationMenu.findItem(R.id.nav_shop_manager).setChecked(false);
         navigationMenu.findItem(R.id.nav_category).setChecked(false);
     }
 
@@ -85,10 +90,18 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         startActivity(intent);
     }
 
+    @Override
+    public void onItemQuickOrder(int position) {
+        //TODO: Send request quick order
+    }
+
     public void onDetailItemClick(int itemId) {
         switch (itemId) {
             case R.id.nav_profile:
                 startActivity(new Intent(FoodDrinkActivity.this, ProfileViewActivity.class));
+                break;
+            case R.id.nav_change_password:
+                startActivity(new Intent(FoodDrinkActivity.this, ChangePasswordActivity.class));
                 break;
             default:
                 break;

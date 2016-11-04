@@ -10,6 +10,11 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.CAMERA"/>
+
+        <uses-feature android:name="android.hardware.camera"/>
+
         <activity
             android:name=".ui.activity.FoodDrinkActivity"
             android:theme="@style/AppTheme.NoActionBar">

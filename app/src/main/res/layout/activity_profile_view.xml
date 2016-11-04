@@ -32,7 +32,8 @@
                 <Button
                     android:id="@+id/btn_edit_name"
                     style="@style/EditProfileBtn"
-                    android:layout_gravity="right|center_vertical"/>
+                    android:layout_gravity="right|center_vertical"
+                    android:onClick="editValue"/>
 
                 <TextView
                     android:id="@+id/text_profile_name"
@@ -50,7 +51,8 @@
                 <Button
                     android:id="@+id/btn_edit_phone"
                     style="@style/EditProfileBtn"
-                    android:layout_gravity="right|center_vertical"/>
+                    android:layout_gravity="right|center_vertical"
+                    android:onClick="editValue"/>
 
                 <TextView
                     android:id="@+id/text_profile_phone"
@@ -68,7 +70,8 @@
                 <Button
                     android:id="@+id/btn_edit_email"
                     style="@style/EditProfileBtn"
-                    android:layout_gravity="right|center_vertical"/>
+                    android:layout_gravity="right|center_vertical"
+                    android:onClick="editValue"/>
 
                 <TextView
                     android:id="@+id/text_profile_email"
