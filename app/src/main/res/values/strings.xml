@@ -54,4 +54,11 @@
     <string name="gallery">Gallery</string>
     <string name="quick_order">Quick order</string>
     <string name="shop_management">Shop management</string>
+    <string name="product_name">Product name</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="product_image">Product image</string>
+    <string name="product_preview">Product preview</string>
+    <string name="image_loading">Image Loading</string>
+    <string name="load_image_fail">Load image fail!</string>
 </resources>

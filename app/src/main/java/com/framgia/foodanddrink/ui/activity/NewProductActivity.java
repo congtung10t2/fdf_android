@@ -7,80 +7,28 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.RequestDef;
 import com.framgia.foodanddrink.utils.AlertDialogUtils;
 
-public class ProfileViewActivity extends AppCompatActivity implements OnClickListener {
+public class NewProductActivity extends AppCompatActivity implements OnClickListener {
     private ImageView avatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_view);
+        setContentView(R.layout.activity_new_product);
         initViews();
     }
 
     private void initViews() {
-        avatar = (ImageView) findViewById(R.id.image_avatar);
-        findViewById(R.id.btn_edit_email).setOnClickListener(this);
-        findViewById(R.id.btn_edit_name).setOnClickListener(this);
-        findViewById(R.id.btn_edit_phone).setOnClickListener(this);
+        avatar = (ImageView) findViewById(R.id.image_product_image);
+        findViewById(R.id.btn_ok).setOnClickListener(this);
         findViewById(R.id.btn_camera_avt).setOnClickListener(this);
-    }
-
-    public void onClick(View view) {
-        int btnId = view.getId();
-        switch (btnId) {
-            case R.id.btn_edit_email:
-            case R.id.btn_edit_name:
-            case R.id.btn_edit_phone:
-                editValue(btnId);
-                break;
-            case R.id.btn_camera_avt:
-                loadPhoto();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void editValue(int editId) {
-        final TextView textViewChanged;
-        final EditText txtUrl = new EditText(this);
-        switch (editId) {
-            case R.id.btn_edit_name:
-                txtUrl.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                textViewChanged = (TextView) findViewById(R.id.text_profile_name);
-                break;
-            case R.id.btn_edit_phone:
-                txtUrl.setInputType(InputType.TYPE_CLASS_PHONE);
-                textViewChanged = (TextView) findViewById(R.id.text_profile_phone);
-                break;
-            case R.id.btn_edit_email:
-                txtUrl.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-                textViewChanged = (TextView) findViewById(R.id.text_profile_email);
-                break;
-            default:
-                return;
-        }
-        new AlertDialog.Builder(this)
-            .setTitle(textViewChanged.getText())
-            .setView(txtUrl)
-            .setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    textViewChanged.setText(txtUrl.getText().toString());
-                }
-            })
-            .setNegativeButton(R.string.cancel, null).show();
     }
 
     private void loadPhoto() {
@@ -104,10 +52,24 @@ public class ProfileViewActivity extends AppCompatActivity implements OnClickLis
                 }).show();
     }
 
+    public void onClick(View view) {
+        int btnId = view.getId();
+        switch (btnId) {
+            case R.id.btn_ok:
+                finish();
+                break;
+            case R.id.btn_camera_avt:
+                loadPhoto();
+                break;
+            default:
+                break;
+        }
+    }
+
     @Override
     protected void onActivityResult(@RequestDef int requestCode, int resultCode, Intent data) {
         if (resultCode != RESULT_OK) {
-            AlertDialogUtils.show(ProfileViewActivity.this, R.string.image_loading, R.string
+            AlertDialogUtils.show(NewProductActivity.this, R.string.image_loading, R.string
                 .load_image_fail);
             return;
         }

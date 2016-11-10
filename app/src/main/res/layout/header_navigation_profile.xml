@@ -39,14 +39,13 @@
         android:src="@drawable/ic_demo_food"/>
 
     <Button
-        android:id="@+id/profile_view"
+        android:id="@+id/btn_profile_view"
         android:layout_width="@dimen/ic_profile_view_side"
         android:layout_height="@dimen/ic_profile_view_side"
         android:layout_gravity="left|top"
         android:layout_marginLeft="@dimen/ic_profile_view_margin_left"
         android:layout_marginTop="@dimen/ic_profile_view_margin_top"
         android:background="@drawable/ic_edit_profile"
-        android:onClick="onProfileShow"
         android:padding="@dimen/profile_left_padding"/>
 
 </FrameLayout>

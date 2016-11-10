@@ -23,6 +23,5 @@
         android:layout_height="@dimen/camera_layout_size"
         android:layout_gravity="left|bottom"
         android:layout_marginLeft="@dimen/camera_avt_left_margin"
-        android:background="@android:drawable/ic_menu_camera"
-        android:onClick="loadPhoto"/>
+        android:background="@android:drawable/ic_menu_camera"/>
 </FrameLayout>
