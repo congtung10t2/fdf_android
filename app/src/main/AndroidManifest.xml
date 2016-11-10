@@ -32,6 +32,9 @@
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.ChangePasswordActivity"/>
         <activity android:name=".ui.activity.NewProductActivity"/>
+
+        <service android:name=".service.DailyNotifyService"/>
+
     </application>
 
 </manifest>
