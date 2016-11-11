@@ -50,5 +50,19 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btn_add_to_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/add_to_cart"/>
+
+        <Button
+            android:id="@+id/btn_quick_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/quick_order"/>
     </LinearLayout>
 </LinearLayout>
