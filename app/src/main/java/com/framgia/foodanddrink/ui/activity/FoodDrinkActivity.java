@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAdapter
-    .OnItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+    .OnItemClickListener, NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     private static final int INVERSE_DEGREES = 180;
     private FoodDrinkAdapter adapter;
     private List<FoodDrinkItem> foodAndDrinks = new ArrayList<>();
@@ -33,6 +33,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
     private DrawerLayout drawer;
     private RecyclerView contentFoodDrink;
     private boolean profileView;
+    private View headerNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         initViews();
     }
 
-    public void initViews() {
+    private void initViews() {
         contentFoodDrink = (RecyclerView) findViewById(R.id.content_food_drink);
         contentFoodDrink.setLayoutManager(new LinearLayoutManager(this));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -58,9 +59,11 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         adapter = new FoodDrinkAdapter(foodAndDrinks);
         adapter.setItemClickListener(this);
         contentFoodDrink.setAdapter(adapter);
-    }
+        headerNavigationView = navigationView.getHeaderView(0);
+        headerNavigationView.findViewById(R.id.btn_profile_view).setOnClickListener(this);
+}
 
-    public void onProfileShow(View view) {
+    private void onProfileShow(View view) {
         onHideGroupItems();
         Menu navigationMenu = navigationView.getMenu();
         navigationMenu.setGroupVisible(R.id.gr_category_menu, profileView);
@@ -71,7 +74,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         view.setVisibility(View.VISIBLE);
     }
 
-    public void onHideGroupItems() {
+    private void onHideGroupItems() {
         Menu navigationMenu = navigationView.getMenu();
         navigationMenu.setGroupVisible(R.id.gr_category, false);
         navigationMenu.setGroupVisible(R.id.gr_feature, false);
@@ -95,13 +98,16 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         //TODO: Send request quick order
     }
 
-    public void onDetailItemClick(int itemId) {
+    private void onDetailItemClick(int itemId) {
         switch (itemId) {
             case R.id.nav_profile:
                 startActivity(new Intent(FoodDrinkActivity.this, ProfileViewActivity.class));
                 break;
             case R.id.nav_change_password:
                 startActivity(new Intent(FoodDrinkActivity.this, ChangePasswordActivity.class));
+                break;
+            case R.id.nav_shop_manager:
+                startActivity(new Intent(FoodDrinkActivity.this, NewProductActivity.class));
                 break;
             default:
                 break;
@@ -122,7 +128,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         return true;
     }
 
-    public int getGroupIdFromTitleId(int titleId) {
+    private int getGroupIdFromTitleId(int titleId) {
         switch (titleId) {
             case R.id.nav_category:
                 return R.id.gr_category;
@@ -136,5 +142,14 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return onChangeNavigationItemState(navigationView, item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_profile_view:
+                onProfileShow(view);
+                break;
+        }
     }
 }

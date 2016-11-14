@@ -1,0 +1,72 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ui.activity.RegisterActivity">
+
+    <AutoCompleteTextView
+        android:id="@+id/input_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/product_name"
+        android:inputType="textAutoComplete"
+        android:maxLines="1"
+        android:singleLine="true"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/input_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:inputType="textMultiLine"/>
+
+    <EditText
+        android:id="@+id/input_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/text_product_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/product_preview"/>
+
+    <ImageView
+        android:id="@+id/image_product_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/product_review_size"
+        android:contentDescription="@string/product_image"/>
+
+    <Button
+        android:id="@+id/btn_camera_avt"
+        android:layout_width="@dimen/camera_layout_size"
+        android:layout_height="@dimen/camera_layout_size"
+        android:layout_gravity="left|bottom"
+        android:layout_marginLeft="@dimen/camera_avt_left_margin"
+        android:background="@android:drawable/ic_menu_camera"/>
+
+    <CheckBox
+        android:id="@+id/cb_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/condition"/>
+
+    <Button
+        android:id="@+id/btn_ok"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_signin_margin_top"
+        android:background="@color/colorPrimary"
+        android:text="@android:string/ok"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
+</LinearLayout>

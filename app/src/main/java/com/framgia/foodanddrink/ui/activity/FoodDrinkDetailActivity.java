@@ -20,7 +20,7 @@ public class FoodDrinkDetailActivity extends AppCompatActivity {
         initView();
     }
 
-    public void initView() {
+    private void initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_food_drink_detail);
         Intent intent = getIntent();
         item = intent.getParcelableExtra(Constants.ITEM_INDEX_KEY);
