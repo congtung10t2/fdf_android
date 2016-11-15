@@ -27,9 +27,9 @@
     <dimen name="profile_top_margin">45dp</dimen>
     <dimen name="avatar_side_value">100dp</dimen>
     <dimen name="avatar_top_margin">20dp</dimen>
-    <dimen name="ic_profile_view_side">35dp</dimen>
+    <dimen name="ic_profile_view_side">20dp</dimen>
     <dimen name="ic_profile_view_margin_left">120dp</dimen>
-    <dimen name="ic_profile_view_margin_top">33dp</dimen>
+    <dimen name="ic_profile_view_margin_top">40dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="edit_profile_side_margin">30dp</dimen>

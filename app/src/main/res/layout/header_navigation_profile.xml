@@ -45,9 +45,8 @@
         android:layout_gravity="start|top"
         android:layout_marginLeft="@dimen/ic_profile_view_margin_left"
         android:layout_marginTop="@dimen/ic_profile_view_margin_top"
-        android:background="@drawable/ic_edit_profile"
+        android:background="@android:drawable/arrow_up_float"
         android:padding="@dimen/profile_left_padding"/>
-
     <CheckBox
         android:id="@+id/cb_push_notify"
         android:layout_width="wrap_content"
