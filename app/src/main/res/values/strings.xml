@@ -65,4 +65,9 @@
     <string name="order_now">Order Now</string>
     <string name="notify_message">Time to have lunch</string>
     <string name="notify_order_now">Order now!</string>
+    <string name="your_order">Your order</string>
+    <string name="notification">Notification</string>
+    <string name="home">Home</string>
+    <string name="shop_statistics">Shop statistics</string>
+    <string name="report">Report</string>
 </resources>

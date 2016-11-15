@@ -44,6 +44,7 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
     private boolean profileView;
     private View headerNavigationView;
     private CheckBox pushEnable;
+    private Menu navigationMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,30 +80,16 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         headerNavigationView.findViewById(R.id.btn_profile_view).setOnClickListener(this);
         pushEnable = (CheckBox) headerNavigationView.findViewById(R.id
             .cb_push_notify);
+        navigationMenu = navigationView.getMenu();
         pushEnable.setOnCheckedChangeListener(this);
     }
 
     private void onProfileShow(View view) {
-        onHideGroupItems();
-        Menu navigationMenu = navigationView.getMenu();
-        navigationMenu.setGroupVisible(R.id.gr_category_menu, profileView);
-        navigationMenu.setGroupVisible(R.id.gr_feature_menu, profileView);
+        navigationMenu.setGroupVisible(R.id.gr_main_function, profileView);
         navigationMenu.setGroupVisible(R.id.gr_profile, !profileView);
         profileView = !profileView;
         view.setRotation(view.getRotation() + INVERSE_DEGREES);
         view.setVisibility(View.VISIBLE);
-    }
-
-    private void onHideGroupItems() {
-        Menu navigationMenu = navigationView.getMenu();
-        navigationMenu.setGroupVisible(R.id.gr_category, false);
-        navigationMenu.setGroupVisible(R.id.gr_feature, false);
-        navigationMenu.findItem(R.id.nav_feature).setChecked(false);
-        navigationMenu.findItem(R.id.nav_shop).setChecked(false);
-        navigationMenu.findItem(R.id.nav_shop).setVisible(profileView);
-        navigationMenu.findItem(R.id.nav_shop_manager).setVisible(profileView);
-        navigationMenu.findItem(R.id.nav_shop_manager).setChecked(false);
-        navigationMenu.findItem(R.id.nav_category).setChecked(false);
     }
 
     @Override
@@ -118,15 +105,9 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
     }
 
     private void onDetailItemClick(int itemId) {
-        switch (itemId) {
-            case R.id.nav_profile:
+          switch (itemId) {
+           case R.id.nav_account:
                 startActivity(new Intent(FoodDrinkActivity.this, ProfileViewActivity.class));
-                break;
-            case R.id.nav_change_password:
-                startActivity(new Intent(FoodDrinkActivity.this, ChangePasswordActivity.class));
-                break;
-            case R.id.nav_shop_manager:
-                startActivity(new Intent(FoodDrinkActivity.this, NewProductActivity.class));
                 break;
             default:
                 break;
@@ -149,10 +130,10 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
 
     private int getGroupIdFromTitleId(int titleId) {
         switch (titleId) {
-            case R.id.nav_category:
-                return R.id.gr_category;
-            case R.id.nav_feature:
-                return R.id.gr_feature;
+          //  case R.id.nav_category:
+          //      return R.id.gr_category;
+           // case R.id.nav_feature:
+          //      return R.id.gr_feature;
             default:
                 return Constants.INVALID_GROUP_ID;
         }
