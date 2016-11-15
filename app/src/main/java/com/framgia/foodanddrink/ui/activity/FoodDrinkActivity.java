@@ -25,6 +25,7 @@ import com.framgia.foodanddrink.data.Constants;
 import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 import com.framgia.foodanddrink.service.DailyNotifyService;
 import com.framgia.foodanddrink.ui.adapter.FoodDrinkAdapter;
+import com.framgia.foodanddrink.ui.view.ActivityStateManager;
 import com.framgia.foodanddrink.ui.view.FDFNavigationView;
 import com.framgia.foodanddrink.ui.view.IActivityState;
 import com.framgia.foodanddrink.utils.DataStorage;
@@ -48,12 +49,14 @@ public class FoodDrinkActivity extends AppCompatActivity implements FoodDrinkAda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food_drink);
         initViews();
+        ActivityStateManager.getInstance().onCreate();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         navigationView.onResume();
+        ActivityStateManager.getInstance().onResume();
       //  pushEnable.setChecked(DataStorage.getValue(this, REMINDER, false));
     }
 

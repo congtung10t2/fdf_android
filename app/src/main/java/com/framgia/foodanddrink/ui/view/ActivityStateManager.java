@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class ActivityStateManager {
     private static ActivityStateManager instance = new ActivityStateManager();
+    private List<IActivityState> activityStates = new ArrayList();
 
     public static ActivityStateManager getInstance() {
         return instance;
@@ -15,7 +16,6 @@ public class ActivityStateManager {
 
     private ActivityStateManager() {
     }
-    List<IActivityState> activityStates = new ArrayList();
 
     public void init(){
         activityStates.clear();
@@ -32,5 +32,26 @@ public class ActivityStateManager {
     }
 
     public void onCreate(){
+        for (IActivityState activityState: activityStates) {
+            activityState.onCreate();
+        }
+    }
+
+    public void onResume(){
+        for (IActivityState activityState: activityStates) {
+            activityState.onResume();
+        }
+    }
+
+    public void onStart(){
+        for (IActivityState activityState: activityStates) {
+            activityState.onStart();
+        }
+    }
+
+    public void onDestroy(){
+        for (IActivityState activityState: activityStates) {
+            activityState.onDestroy();
+        }
     }
 }
