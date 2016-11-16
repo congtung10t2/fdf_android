@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,20 +20,25 @@ import com.framgia.foodanddrink.utils.DataTests;
  * Created by framgia on 15/11/2016.
  */
 public class FDFNavigationView extends NavigationView
-    implements CompoundButton.OnCheckedChangeListener, IActivityState {
+    implements CompoundButton.OnCheckedChangeListener, IActivityState, View.OnClickListener {
+    private static final int INVERSE_DEGREES = 180;
     private View headerNavigationView;
     private static final String REMINDER = "reminder";
     private CheckBox pushEnable;
     private Menu navigationMenu;
     private Context currentContext;
-
-    public void setCurrentContext(Context context) {
-        this.currentContext = context;
-    }
+    private boolean profileView;
 
     @Override
     public void onCreate() {
-        initInsideViews();
+    }
+
+    public void onProfileShow(View view) {
+        navigationMenu.setGroupVisible(R.id.gr_main_function, profileView);
+        navigationMenu.setGroupVisible(R.id.gr_profile, !profileView);
+        profileView = !profileView;
+        view.setRotation(view.getRotation() + INVERSE_DEGREES);
+        view.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -53,12 +59,24 @@ public class FDFNavigationView extends NavigationView
         pushEnable = (CheckBox) headerNavigationView.findViewById(R.id
             .cb_push_notify);
         navigationMenu = getMenu();
+        headerNavigationView.findViewById(R.id.btn_profile_view).setOnClickListener(this);
         pushEnable.setOnCheckedChangeListener(this);
 
     }
 
     public FDFNavigationView(Context context) {
-        super(context);
+        this(context, null);
+    }
+
+
+    public FDFNavigationView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);;
+    }
+
+    public FDFNavigationView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        currentContext = context;
+        initInsideViews();
     }
 
     @Override
@@ -77,6 +95,15 @@ public class FDFNavigationView extends NavigationView
                 }
                 alarm.cancel(PendingIntent
                     .getBroadcast(currentContext, 0, new Intent(currentContext, DailyNotifyService.class), 0));
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_profile_view:
+                onProfileShow(view);
                 break;
         }
     }
