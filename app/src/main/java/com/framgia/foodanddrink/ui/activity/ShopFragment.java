@@ -12,17 +12,19 @@ import android.view.ViewGroup;
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.Constants;
 import com.framgia.foodanddrink.data.model.FoodDrinkItem;
+import com.framgia.foodanddrink.data.model.ShopItem;
 import com.framgia.foodanddrink.ui.adapter.FoodDrinkAdapter;
+import com.framgia.foodanddrink.ui.adapter.ShopAdapter;
 import com.framgia.foodanddrink.utils.DataTests;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
+public class ShopFragment extends Fragment implements ShopAdapter
     .OnItemClickListener {
-    private FoodDrinkAdapter adapter;
-    private List<FoodDrinkItem> foodAndDrinks = new ArrayList<>();
-    private RecyclerView contentFoodDrink;
+    private ShopAdapter adapter;
+    private List<ShopItem> shopItems = new ArrayList<>();
+    private RecyclerView shopItemView;
     private View view;
 
     @Override
@@ -35,29 +37,24 @@ public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.content_food_drink, container, false);
+        view = inflater.inflate(R.layout.content_shops, container, false);
         initViews();
         return view;
     }
 
     private void initViews() {
-        contentFoodDrink = (RecyclerView) view.findViewById(R.id.content_food_drink);
-        contentFoodDrink.setLayoutManager(new LinearLayoutManager(getActivity()));
-        DataTests.fakeListFoodDrink(foodAndDrinks);
-        adapter = new FoodDrinkAdapter(foodAndDrinks);
+        shopItemView = (RecyclerView) view.findViewById(R.id.content_shops);
+        shopItemView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        DataTests.fakeListShop(shopItems);
+        adapter = new ShopAdapter(shopItems);
         adapter.setItemClickListener(this);
-        contentFoodDrink.setAdapter(adapter);
+        shopItemView.setAdapter(adapter);
     }
 
     @Override
     public void onItemClick(View view, int position) {
-        Intent intent = new Intent(getContext(), FoodDrinkDetailActivity.class);
-        intent.putExtra(Constants.ITEM_INDEX_KEY, foodAndDrinks.get(position));
-        startActivity(intent);
-    }
-
-    @Override
-    public void onItemQuickOrder(int position) {
-        //TODO: Send request quick order
+       // Intent intent = new Intent(getContext(), FoodDrinkDetailActivity.class);
+     //   intent.putExtra(Constants.ITEM_INDEX_KEY, shopItems.get(position));
+      //  startActivity(intent);
     }
 }

@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.framgia.foodanddrink.ui.activity.FoodDrinkFragment;
+import com.framgia.foodanddrink.ui.activity.ShopFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
@@ -20,21 +21,16 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        FoodDrinkFragment tab1 = new FoodDrinkFragment();
-        return tab1;
-        /*switch (position) {
+        switch (position) {
             case 0:
-                FoodDrinkFragment tab1 = new FoodDrinkFragment();
-                return tab1;
+                return new ShopFragment();
             case 1:
-                FoodDrinkFragment tab1 = new FoodDrinkFragment();
-                return tab1;
+                return new ShopFragment();
             case 2:
-                FoodDrinkFragment tab1 = new FoodDrinkFragment();
-                return tab1;
+                return new FoodDrinkFragment();
             default:
                 return null;
-        }*/
+        }
     }
 
     @Override

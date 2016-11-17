@@ -24,7 +24,7 @@ public class ShopItem implements Parcelable {
     private String description;
     private int resImage;
 
-    public ShopItem(String title, String description, String price, int resImage) {
+    public ShopItem(String title, String description, int resImage) {
         this.title = title;
         this.description = description;
         this.resImage = resImage;

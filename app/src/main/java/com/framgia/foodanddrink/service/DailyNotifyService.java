@@ -10,7 +10,7 @@ import android.support.v4.app.TaskStackBuilder;
 
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.Constants;
-import com.framgia.foodanddrink.ui.activity.FoodDrinkActivity;
+import com.framgia.foodanddrink.ui.activity.MainActivity;
 import com.framgia.foodanddrink.ui.activity.LoginActivity;
 
 /**
@@ -32,7 +32,7 @@ public class DailyNotifyService extends IntentService {
                 .setSmallIcon(R.drawable.ic_demo_food)
                 .setContentTitle(getString(R.string.notify_message))
                 .setContentText(getString(R.string.notify_order_now));
-        Intent resultIntent = new Intent(this, FoodDrinkActivity.class);
+        Intent resultIntent = new Intent(this, MainActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(LoginActivity.class);
         stackBuilder.addNextIntent(resultIntent);

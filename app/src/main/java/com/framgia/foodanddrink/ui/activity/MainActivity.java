@@ -58,12 +58,15 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.action_feature:
-                viewPager.setCurrentItem(1);
+                viewPager.setCurrentItem(0);
                 break;
             case R.id.action_top_shops:
+                viewPager.setCurrentItem(1);
+                break;
+            case R.id.action_top_products:
                 viewPager.setCurrentItem(2);
                 break;
         }
-        return false;
+        return true;
     }
 }

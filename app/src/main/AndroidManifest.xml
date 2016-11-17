@@ -16,7 +16,7 @@
         <uses-feature android:name="android.hardware.camera"/>
 
         <activity
-            android:name=".ui.activity.FoodDrinkActivity"
+            android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -35,8 +35,6 @@
 
         <service android:name=".service.DailyNotifyService"/>
 
-        <activity android:name=".ui.activity.MainActivity">
-        </activity>
     </application>
 
 </manifest>

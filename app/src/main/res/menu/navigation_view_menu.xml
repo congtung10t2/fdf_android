@@ -3,18 +3,18 @@
     <group
         android:id="@+id/gr_main_function"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_cart"
-        android:title="@string/cart"/>
-    <item
-        android:id="@+id/nav_order"
-        android:title="@string/your_order"/>
-    <item
-        android:id="@+id/nav_notify"
-        android:title="@string/notification"/>
-    <item
-        android:id="@+id/nav_home"
-        android:title="@string/home"/>
+        <item
+            android:id="@+id/nav_cart"
+            android:title="@string/cart"/>
+        <item
+            android:id="@+id/nav_order"
+            android:title="@string/your_order"/>
+        <item
+            android:id="@+id/nav_notify"
+            android:title="@string/notification"/>
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"/>
     </group>
     <group
         android:id="@+id/gr_profile"
