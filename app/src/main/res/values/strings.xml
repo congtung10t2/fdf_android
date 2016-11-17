@@ -70,4 +70,6 @@
     <string name="home">Home</string>
     <string name="shop_statistics">Shop statistics</string>
     <string name="report">Report</string>
+    <string name="feature">Feature</string>
+    <string name="top_shops">Top shops</string>
 </resources>

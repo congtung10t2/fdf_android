@@ -13,13 +13,16 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:paddingBottom="@dimen/item_padding_bottom"
-        android:paddingTop="@dimen/item_padding_top">
+        android:paddingTop="@dimen/item_padding_top"
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/image_item_detail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"/>
+            android:background="@drawable/ic_shop_avatar"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:layout_weight="9.90"/>
     </LinearLayout>
 
     <LinearLayout
@@ -31,7 +34,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_item_title"
+            android:id="@+id/text_shop_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -39,30 +42,11 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/text_item_desc"
+            android:id="@+id/text_shop_item_desc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="86dp"
+            android:inputType="text|textMultiLine"
             android:gravity="right"/>
 
-        <TextView
-            android:id="@+id/text_item_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/btn_add_to_cart"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:text="@string/add_to_cart"/>
-
-        <Button
-            android:id="@+id/btn_quick_order"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:text="@string/quick_order"/>
     </LinearLayout>
 </LinearLayout>

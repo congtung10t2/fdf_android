@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_search"
-          android:title="A" />
-    <item android:id="@+id/action_settings"
-          android:title="B"/>
-    <item android:id="@+id/action_navigation"
-          android:title="C"/>
+    <item
+        android:id="@+id/action_feature"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/feature"/>
+    <item
+        android:id="@+id/action_top_shops"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="@string/top_shops"/>
+    <item
+        android:id="@+id/action_top_products"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="@string/top_product"/>
 </menu>
