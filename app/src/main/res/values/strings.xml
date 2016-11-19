@@ -72,4 +72,6 @@
     <string name="report">Report</string>
     <string name="feature">Feature</string>
     <string name="top_shops">Top shops</string>
+    <string name="update">Update</string>
+    <string name="reset">Reset</string>
 </resources>

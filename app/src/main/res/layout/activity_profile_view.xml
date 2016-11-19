@@ -77,5 +77,24 @@
             </FrameLayout>
         </LinearLayout>
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_update"
+            style="@style/TransparentBtnInLoginPage"
+            android:background="@color/colorPrimary"
+            android:layout_margin="15dp"
+            android:textColor="@android:color/white"
+            android:text="@string/update"/>
+        <Button
+            android:id="@+id/btn_reset"
+            style="@style/TransparentBtnInLoginPage"
+            android:background="@android:color/white"
+            android:layout_margin="15dp"
+            android:text="@string/reset"/>
+    </LinearLayout>
 
 </LinearLayout>
