@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 
 import com.framgia.foodanddrink.FoodDrinkApplication;
+import com.framgia.foodanddrink.data.model.ShopItem;
+
+import java.util.ArrayList;
 
 /**
  * Created by hoangcongtung on 11/18/16.
@@ -15,6 +18,7 @@ public class UserStorage {
     private String phone;
     private String email;
     private String image;
+    public ArrayList<ShopItem> itemShops = new ArrayList();
 
     public static UserStorage getInstance() {
         if (instance == null) {

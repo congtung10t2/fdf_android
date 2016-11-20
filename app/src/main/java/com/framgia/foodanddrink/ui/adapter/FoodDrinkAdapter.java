@@ -20,6 +20,16 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
     private List<FoodDrinkItem> foodDrinkItems;
     private OnItemClickListener itemClickListener;
     private ItemHolder holder;
+    private int layoutId;
+
+    public int getLayoutId() {
+        return layoutId;
+    }
+
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+
 
     public FoodDrinkAdapter(List<FoodDrinkItem> foodDrinkItems) {
         this.foodDrinkItems = foodDrinkItems;
@@ -32,7 +42,7 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.food_drink_item_row, parent, false);
+            .inflate(layoutId, parent, false);
         final ItemHolder holder = new ItemHolder(inflatedView);
         inflatedView.setOnClickListener(new View.OnClickListener() {
             @Override

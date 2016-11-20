@@ -19,6 +19,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ItemHolder> {
     private List<ShopItem> shopItems;
     private OnItemClickListener itemClickListener;
     private ItemHolder holder;
+    private int layoutId;
+
+    public int getLayoutId() {
+        return layoutId;
+    }
+
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+
 
     public ShopAdapter(List<ShopItem> shopItems) {
         this.shopItems = shopItems;
@@ -31,7 +41,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ItemHolder> {
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.shop_item_row, parent, false);
+            .inflate(layoutId, parent, false);
         final ItemHolder holder = new ItemHolder(inflatedView);
         inflatedView.setOnClickListener(new View.OnClickListener() {
             @Override

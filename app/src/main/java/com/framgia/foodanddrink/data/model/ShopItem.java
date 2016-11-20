@@ -5,6 +5,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 /**
  * Created by framgia on 19/10/2016.
  */
@@ -23,6 +25,7 @@ public class ShopItem implements Parcelable {
     private String title;
     private String description;
     private int resImage;
+    public ArrayList<FoodDrinkItem> list = new ArrayList();
 
     public ShopItem(String title, String description, int resImage) {
         this.title = title;
