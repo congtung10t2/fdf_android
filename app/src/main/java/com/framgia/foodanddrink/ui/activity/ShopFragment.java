@@ -35,6 +35,15 @@ public class ShopFragment extends Fragment implements ShopAdapter
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        shopItems.clear();
+        shopItems.addAll(UserStorage.getInstance().itemShops);
+        shopItems.addAll(DataTests.shopItems);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -57,6 +66,14 @@ public class ShopFragment extends Fragment implements ShopAdapter
 
     @Override
     public void onItemClick(View view, int position) {
+        ShopManagementActivity.currentShop = shopItems.get(position);
+        if(position >= UserStorage.getInstance().itemShops.size())
+        {
+            Intent intent = new Intent(getContext(), ShopOtherDetailActivity.class);
+            intent.putExtra(Constants.ITEM_INDEX_KEY, shopItems.get(position));
+            startActivity(intent);
+            return;
+        }
         Intent intent = new Intent(getContext(), ShopDetailActivity.class);
         intent.putExtra(Constants.ITEM_INDEX_KEY, shopItems.get(position));
         startActivity(intent);

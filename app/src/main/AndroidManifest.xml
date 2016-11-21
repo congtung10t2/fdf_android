@@ -46,6 +46,8 @@
         </activity>
         <activity android:name=".ui.activity.OrdersActivity">
         </activity>
+        <activity android:name=".ui.activity.ShopOtherDetailActivity">
+        </activity>
     </application>
 
 </manifest>

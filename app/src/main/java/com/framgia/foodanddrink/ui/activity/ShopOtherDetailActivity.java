@@ -14,6 +14,7 @@ import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 import com.framgia.foodanddrink.data.model.ShopItem;
 import com.framgia.foodanddrink.databinding.ActivityFoodDrinkDetailBinding;
 import com.framgia.foodanddrink.databinding.ActivityShopDetailBinding;
+import com.framgia.foodanddrink.databinding.ActivityShopOtherDetailBinding;
 import com.framgia.foodanddrink.ui.adapter.FoodDrinkAdapter;
 import com.framgia.foodanddrink.utils.DataTests;
 import com.framgia.foodanddrink.utils.UserStorage;
@@ -21,10 +22,10 @@ import com.framgia.foodanddrink.utils.UserStorage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopDetailActivity extends AppCompatActivity
+public class ShopOtherDetailActivity extends AppCompatActivity
     implements FoodDrinkAdapter.OnItemClickListener {
     private ShopItem item;
-    private ActivityShopDetailBinding binding;
+    private ActivityShopOtherDetailBinding binding;
     private FoodDrinkAdapter adapter;
     private RecyclerView contentFoodDrink;
 
@@ -45,9 +46,9 @@ public class ShopDetailActivity extends AppCompatActivity
     }
 
     private void initView() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_shop_detail);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_shop_other_detail);
         Intent intent = getIntent();
-        item = intent.getParcelableExtra(Constants.SHOP_INDEX_KEY);
+        item = ShopManagementActivity.currentShop;
         binding.setItem(ShopManagementActivity.currentShop);
 
         contentFoodDrink = (RecyclerView) findViewById(R.id.content_shop_detail);
@@ -62,7 +63,7 @@ public class ShopDetailActivity extends AppCompatActivity
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(this, FoodDrinkDetailActivity.class);
-        intent.putExtra(Constants.ITEM_INDEX_KEY, ShopManagementActivity.currentShop.list.get(position));
+        intent.putExtra(Constants.ITEM_INDEX_KEY, item.list.get(position));
         startActivity(intent);
     }
 
