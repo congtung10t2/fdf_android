@@ -26,6 +26,7 @@ public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
     private FoodDrinkAdapter adapter;
     private List<FoodDrinkItem> foodAndDrinks = new ArrayList<>();
     private RecyclerView contentFoodDrink;
+    ArrayList<ShopItem> shopItemArrayList;
     private View view;
 
     @Override
@@ -46,7 +47,10 @@ public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
     private void initViews() {
         contentFoodDrink = (RecyclerView) view.findViewById(R.id.content_food_drink);
         contentFoodDrink.setLayoutManager(new LinearLayoutManager(getActivity()));
-        for(ShopItem item : DataTests.shopItems)
+        shopItemArrayList = new ArrayList();
+        shopItemArrayList.addAll(UserStorage.getInstance().itemShops);
+        shopItemArrayList.addAll(DataTests.shopItems);
+        for(ShopItem item : shopItemArrayList)
             foodAndDrinks.addAll(item.list);
         adapter = new FoodDrinkAdapter(foodAndDrinks);
         adapter.setLayoutId(R.layout.food_drink_item_row);

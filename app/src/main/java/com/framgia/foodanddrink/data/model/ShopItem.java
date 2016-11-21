@@ -50,12 +50,15 @@ public class ShopItem implements Parcelable {
 
     @BindingAdapter("imageResource")
     public static void setImageResource(ImageView imageView, String resource) {
-        File imgFile = new  File(resource);
+        if(resource!= null)
+        {
+            File imgFile = new  File(resource);
 
-        if(imgFile.exists()){
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            imageView.setImageBitmap(myBitmap);
-            return;
+            if(imgFile.exists()){
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                imageView.setImageBitmap(myBitmap);
+                return;
+            }
         }
         imageView.setImageBitmap(BitmapFactory.decodeResource(FoodDrinkApplication.getInstance().getResources(), R.drawable.ic_demo_food));
     }

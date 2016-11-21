@@ -56,11 +56,14 @@ public class ShopDetailActivity extends AppCompatActivity
         adapter.setLayoutId(R.layout.item_show_row);
         adapter.setItemClickListener(this);
         contentFoodDrink.setAdapter(adapter);
+        //binding.getRoot().findViewById(R.id.btn_add_products)
     }
 
     @Override
     public void onItemClick(View view, int position) {
-
+        Intent intent = new Intent(this, FoodDrinkDetailActivity.class);
+        intent.putExtra(Constants.ITEM_INDEX_KEY, UserStorage.getInstance().itemShops.get(ShopManagementActivity.shopIndex).list.get(position));
+        startActivity(intent);
     }
 
     @Override

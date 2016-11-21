@@ -57,8 +57,8 @@ public class ShopFragment extends Fragment implements ShopAdapter
 
     @Override
     public void onItemClick(View view, int position) {
-       // Intent intent = new Intent(getContext(), FoodDrinkDetailActivity.class);
-     //   intent.putExtra(Constants.ITEM_INDEX_KEY, shopItems.get(position));
-      //  startActivity(intent);
+        Intent intent = new Intent(getContext(), ShopDetailActivity.class);
+        intent.putExtra(Constants.ITEM_INDEX_KEY, shopItems.get(position));
+        startActivity(intent);
     }
 }
