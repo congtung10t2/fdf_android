@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|top"
             android:layout_marginTop="@dimen/btn_add_to_cart_margin_top"
+            android:onClick="addToCart"
             android:text="@string/add_to_cart"/>
 
         <EditText

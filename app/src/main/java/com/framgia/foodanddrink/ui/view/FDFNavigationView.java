@@ -22,6 +22,7 @@ import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.Constants;
 import com.framgia.foodanddrink.service.DailyNotifyService;
 import com.framgia.foodanddrink.ui.activity.CartActivity;
+import com.framgia.foodanddrink.ui.activity.LoginActivity;
 import com.framgia.foodanddrink.ui.activity.OrdersActivity;
 import com.framgia.foodanddrink.ui.activity.ProfileViewActivity;
 import com.framgia.foodanddrink.ui.activity.ShopManagementActivity;
@@ -166,6 +167,10 @@ public class FDFNavigationView extends NavigationView
                 break;
             case R.id.nav_order:
                 currentContext.startActivity(new Intent(currentContext, OrdersActivity.class));
+                break;
+            case R.id.nav_logout:
+                currentContext.startActivity(new Intent(currentContext, LoginActivity.class));
+                break;
             default:
                 break;
         }
