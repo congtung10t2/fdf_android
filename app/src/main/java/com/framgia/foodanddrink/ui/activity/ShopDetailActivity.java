@@ -21,12 +21,12 @@ import com.framgia.foodanddrink.utils.UserStorage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopDetailActivity extends AppCompatActivity {
+public class ShopDetailActivity extends AppCompatActivity
+    implements FoodDrinkAdapter.OnItemClickListener {
     private ShopItem item;
     private ActivityShopDetailBinding binding;
     private FoodDrinkAdapter adapter;
     private RecyclerView contentFoodDrink;
-    Intent intentNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +41,29 @@ public class ShopDetailActivity extends AppCompatActivity {
     }
 
     public void newProducts(View view){
-        startActivity(intentNew);
+        startActivity(new Intent(this, NewProductActivity.class));
     }
 
     private void initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_shop_detail);
         Intent intent = getIntent();
-        item = intent.getParcelableExtra(Constants.ITEM_INDEX_KEY);
-        intentNew = new Intent(this, NewProductActivity.class);
-        intentNew.putExtra(Constants.SHOP_INDEX_KEY, item);
-        binding.setItem(item);
+        item = intent.getParcelableExtra(Constants.SHOP_INDEX_KEY);
+        binding.setItem(UserStorage.getInstance().itemShops.get(ShopManagementActivity.shopIndex));
 
         contentFoodDrink = (RecyclerView) findViewById(R.id.content_shop_detail);
         contentFoodDrink.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        adapter = new FoodDrinkAdapter(item.list);
-        adapter.setLayoutId(R.layout.food_drink_item_row);
+        adapter = new FoodDrinkAdapter(UserStorage.getInstance().itemShops.get(ShopManagementActivity.shopIndex).list);
+        adapter.setLayoutId(R.layout.item_show_row);
+        adapter.setItemClickListener(this);
         contentFoodDrink.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+
+    }
+
+    @Override
+    public void onItemAddToCart(int position) {
     }
 }

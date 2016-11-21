@@ -50,6 +50,7 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
         inflatedView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(itemClickListener != null)
                 itemClickListener.onItemClick(v, holder.getAdapterPosition());
             }
         });
@@ -60,17 +61,20 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
     public void onBindViewHolder(ItemHolder holder, int position) {
         this.holder = holder;
         FoodDrinkItem foodDrinkItem = foodDrinkItems.get(position);
-        File imgFile = new  File(foodDrinkItem.getResImage());
-        if(imgFile.exists()){
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            holder.itemImage.setImageBitmap(myBitmap);
-            return;
+        if(foodDrinkItem.getResImage() != null){
+            File imgFile = new  File(foodDrinkItem.getResImage());
+            if(imgFile.exists()){
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                holder.itemImage.setImageBitmap(myBitmap);
+                return;
+            }
         }
         holder.itemImage.setImageResource(R.drawable.ic_demo_food);
         holder.itemTitle.setText(foodDrinkItem.getTitle());
         holder.itemDescription.setText(foodDrinkItem.getDescription());
         holder.itemPrice.setText(foodDrinkItem.getPrice());
         final int pos = position;
+        if(holder.btnAddToCart != null)
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

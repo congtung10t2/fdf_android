@@ -39,6 +39,7 @@ public class ShopManagementActivity extends AppCompatActivity implements View.On
     private RecyclerView shopItemView;
     private AutoCompleteTextView inputName;
     private AutoCompleteTextView inputDesc;
+    public static int shopIndex = 0;
     private String imgAvatar = "null";
     private String imageCover = "null";
     private ImageView inputAvatar;
@@ -159,7 +160,8 @@ public class ShopManagementActivity extends AppCompatActivity implements View.On
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(ShopManagementActivity.this, ShopDetailActivity.class);
-        intent.putExtra(Constants.ITEM_INDEX_KEY, UserStorage.getInstance().itemShops.get(position));
+        intent.putExtra(Constants.SHOP_INDEX_KEY, UserStorage.getInstance().itemShops.get(position));
+        shopIndex = position;
         startActivity(intent);
     }
 }

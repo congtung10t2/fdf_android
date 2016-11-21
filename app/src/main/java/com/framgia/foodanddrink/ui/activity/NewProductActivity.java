@@ -21,6 +21,7 @@ import com.framgia.foodanddrink.data.RequestDef;
 import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 import com.framgia.foodanddrink.data.model.ShopItem;
 import com.framgia.foodanddrink.utils.AlertDialogUtils;
+import com.framgia.foodanddrink.utils.UserStorage;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -41,8 +42,6 @@ public class NewProductActivity extends AppCompatActivity implements OnClickList
     }
 
     private void initViews() {
-        Intent intent = getIntent();
-        shopItem = intent.getParcelableExtra(Constants.SHOP_INDEX_KEY);
         avatar = (ImageView) findViewById(R.id.image_product_image);
         findViewById(R.id.btn_ok).setOnClickListener(this);
         findViewById(R.id.btn_camera_avt).setOnClickListener(this);
@@ -76,7 +75,7 @@ public class NewProductActivity extends AppCompatActivity implements OnClickList
             .toString();
         String price = ((EditText) findViewById(R.id.input_price)).getText().toString();
 
-        shopItem.list.add(new FoodDrinkItem(title, desc, price, imageDirectory));
+        UserStorage.getInstance().itemShops.get(ShopManagementActivity.shopIndex).list.add(new FoodDrinkItem(title, desc, price, imageDirectory));
         AlertDialogUtils.show(NewProductActivity.this, "Congratulation",
             getString(R.string.product_added_content));
     }
