@@ -39,8 +39,7 @@ public class NewProductActivity extends AppCompatActivity implements OnClickList
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider
-                                .MediaStore.Images.Media.EXTERNAL_CONTENT_URI),
-                            RequestDef.GALLERY_REQUEST);
+                                .MediaStore.Images.Media.EXTERNAL_CONTENT_URI), RequestDef.GALLERY_REQUEST);
                     }
                 })
             .setNegativeButton(R.string.camera,

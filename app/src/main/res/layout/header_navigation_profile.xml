@@ -42,10 +42,19 @@
         android:id="@+id/btn_profile_view"
         android:layout_width="@dimen/ic_profile_view_side"
         android:layout_height="@dimen/ic_profile_view_side"
-        android:layout_gravity="left|top"
+        android:layout_gravity="start|top"
         android:layout_marginLeft="@dimen/ic_profile_view_margin_left"
         android:layout_marginTop="@dimen/ic_profile_view_margin_top"
         android:background="@drawable/ic_edit_profile"
         android:padding="@dimen/profile_left_padding"/>
+
+    <CheckBox
+        android:id="@+id/cb_push_notify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_marginRight="@dimen/cb_push_notify_margin_right"
+        android:layout_marginTop="@dimen/cb_push_notify_margin_top"
+        android:text="@string/use_reminder"/>
 
 </FrameLayout>
