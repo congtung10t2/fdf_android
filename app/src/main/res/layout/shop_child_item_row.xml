@@ -1,34 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:weightSum="2">
 
     <LinearLayout
         style="@style/NonWidthStyle"
-        android:layout_marginLeft="@dimen/item_image_left_margin"
-        android:layout_marginTop="@dimen/item_image_top_margin"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/item_padding_bottom"
-        android:paddingTop="@dimen/item_padding_top"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/image_item_detail"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:adjustViewBounds="true"
-            android:layout_weight="9.90"/>
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/NonWidthStyle"
         android:layout_marginLeft="@dimen/content_item_margin_left"
         android:layout_marginRight="@dimen/content_item_margin_right"
-        android:layout_marginTop="@dimen/content_item_margin_top"
+        android:layout_marginTop="32dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -47,5 +29,22 @@
             android:inputType="text|textMultiLine"
             android:gravity="right"/>
 
+    </LinearLayout>
+    <LinearLayout
+        style="@style/NonWidthStyle"
+        android:layout_marginLeft="@dimen/item_image_left_margin"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/item_padding_bottom"
+        android:paddingTop="@dimen/item_padding_top"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/image_shop_avatar_detail"
+            android:layout_width="wrap_content"
+            android:maxWidth="220dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

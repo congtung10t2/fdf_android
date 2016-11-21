@@ -12,8 +12,11 @@ import android.view.ViewGroup;
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.Constants;
 import com.framgia.foodanddrink.data.model.FoodDrinkItem;
+import com.framgia.foodanddrink.data.model.ShopItem;
 import com.framgia.foodanddrink.ui.adapter.FoodDrinkAdapter;
+import com.framgia.foodanddrink.utils.AlertDialogUtils;
 import com.framgia.foodanddrink.utils.DataTests;
+import com.framgia.foodanddrink.utils.UserStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +46,10 @@ public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
     private void initViews() {
         contentFoodDrink = (RecyclerView) view.findViewById(R.id.content_food_drink);
         contentFoodDrink.setLayoutManager(new LinearLayoutManager(getActivity()));
-        DataTests.fakeListFoodDrink(foodAndDrinks);
+        for(ShopItem item : DataTests.shopItems)
+            foodAndDrinks.addAll(item.list);
         adapter = new FoodDrinkAdapter(foodAndDrinks);
+        adapter.setLayoutId(R.layout.food_drink_item_row);
         adapter.setItemClickListener(this);
         contentFoodDrink.setAdapter(adapter);
     }
@@ -57,7 +62,8 @@ public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
     }
 
     @Override
-    public void onItemQuickOrder(int position) {
-        //TODO: Send request quick order
+    public void onItemAddToCart(int position) {
+        UserStorage.getInstance().cart.add(foodAndDrinks.get(position));
+        AlertDialogUtils.show(getContext(), "Congratulation!", "Add to cart successfully");
     }
 }

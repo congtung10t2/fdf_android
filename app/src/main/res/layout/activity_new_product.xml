@@ -33,12 +33,6 @@
         android:hint="@string/price"
         android:inputType="text"/>
 
-    <TextView
-        android:id="@+id/text_product_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/product_preview"/>
-
     <ImageView
         android:id="@+id/image_product_image"
         android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 
 import com.framgia.foodanddrink.FoodDrinkApplication;
+import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 import com.framgia.foodanddrink.data.model.ShopItem;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ public class UserStorage {
     private String email;
     private String image;
     public ArrayList<ShopItem> itemShops = new ArrayList();
+    public ArrayList<FoodDrinkItem> cart = new ArrayList();
+    public ArrayList<FoodDrinkItem> ordered = new ArrayList();
 
     public static UserStorage getInstance() {
         if (instance == null) {

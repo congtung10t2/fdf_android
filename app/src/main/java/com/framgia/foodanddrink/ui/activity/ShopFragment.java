@@ -16,6 +16,7 @@ import com.framgia.foodanddrink.data.model.ShopItem;
 import com.framgia.foodanddrink.ui.adapter.FoodDrinkAdapter;
 import com.framgia.foodanddrink.ui.adapter.ShopAdapter;
 import com.framgia.foodanddrink.utils.DataTests;
+import com.framgia.foodanddrink.utils.UserStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,11 @@ public class ShopFragment extends Fragment implements ShopAdapter
     private void initViews() {
         shopItemView = (RecyclerView) view.findViewById(R.id.content_shops);
         shopItemView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        DataTests.fakeListShop(shopItems);
+        shopItems.clear();
+        shopItems.addAll(UserStorage.getInstance().itemShops);
+        shopItems.addAll(DataTests.shopItems);
         adapter = new ShopAdapter(shopItems);
+        adapter.setLayoutId(R.layout.shop_item_row);
         adapter.setItemClickListener(this);
         shopItemView.setAdapter(adapter);
     }

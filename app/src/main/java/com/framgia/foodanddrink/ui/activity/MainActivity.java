@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.ui.adapter.PagerAdapter;
 import com.framgia.foodanddrink.ui.view.FDFNavigationView;
+import com.framgia.foodanddrink.utils.DataTests;
 
 public class MainActivity extends AppCompatActivity
     implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food_drink);
         initViews();
+        DataTests.init();
     }
 
     @Override

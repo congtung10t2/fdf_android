@@ -1,5 +1,7 @@
 package com.framgia.foodanddrink.ui.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -57,15 +60,23 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
     public void onBindViewHolder(ItemHolder holder, int position) {
         this.holder = holder;
         FoodDrinkItem foodDrinkItem = foodDrinkItems.get(position);
-        holder.itemImage.setImageResource(foodDrinkItem.getResImage());
+        File imgFile = new  File(foodDrinkItem.getResImage());
+        if(imgFile.exists()){
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            holder.itemImage.setImageBitmap(myBitmap);
+            return;
+        }
+        holder.itemImage.setImageResource(R.drawable.ic_demo_food);
         holder.itemTitle.setText(foodDrinkItem.getTitle());
         holder.itemDescription.setText(foodDrinkItem.getDescription());
         holder.itemPrice.setText(foodDrinkItem.getPrice());
         final int pos = position;
-        holder.btnQuickOrder.setOnClickListener(new View.OnClickListener() {
+        holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                itemClickListener.onItemQuickOrder(pos);
+            public void onClick(View view) {
+                if(itemClickListener != null) {
+                    itemClickListener.onItemAddToCart(pos);
+                }
             }
         });
     }
@@ -77,7 +88,7 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
-        void onItemQuickOrder(int position);
+        void onItemAddToCart(int position);
     }
 
     public static class ItemHolder extends RecyclerView.ViewHolder {
@@ -85,7 +96,7 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
         private TextView itemTitle;
         private TextView itemDescription;
         private TextView itemPrice;
-        private Button btnQuickOrder;
+        private Button btnAddToCart;
 
         public ItemHolder(View view) {
             super(view);
@@ -93,7 +104,7 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
             itemTitle = (TextView) view.findViewById(R.id.text_item_title);
             itemDescription = (TextView) view.findViewById(R.id.text_item_desc);
             itemPrice = (TextView) view.findViewById(R.id.text_item_price);
-            btnQuickOrder = (Button) view.findViewById(R.id.btn_quick_order);
+            btnAddToCart = (Button) view.findViewById(R.id.btn_add_to_cart);
         }
     }
 }

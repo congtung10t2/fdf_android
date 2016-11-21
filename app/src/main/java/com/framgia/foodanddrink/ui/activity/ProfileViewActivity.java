@@ -95,12 +95,12 @@ public class ProfileViewActivity extends AppCompatActivity implements OnClickLis
         File imgFile = new  File(imageDirectory);
 
         if(imgFile.exists()){
-
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
             avatar.setImageBitmap(myBitmap);
-
+            return;
         }
+        avatar.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_demo_food));
+
     }
 
     private void editValue(int editId) {
@@ -162,8 +162,6 @@ public class ProfileViewActivity extends AppCompatActivity implements OnClickLis
 
         File destination = new File(FoodDrinkApplication.getInstance().getFilesDir(),
             System.currentTimeMillis() + ".jpg");
-
-        File load = new File(imageDirectory);
         FileOutputStream fo;
         try {
             destination.createNewFile();
@@ -179,27 +177,6 @@ public class ProfileViewActivity extends AppCompatActivity implements OnClickLis
 
         avatar.setImageBitmap(thumbnail);
     }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case Utility.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    if(userChoosenTask.equals("Take Photo"))
-                    startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE), RequestDef.CAMERA_REQUEST);
-                    else if(userChoosenTask.equals("Choose from Library"))
-                        startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider
-                                .MediaStore.Images.Media.EXTERNAL_CONTENT_URI),
-                            RequestDef.GALLERY_REQUEST);
-                } else {
-                    AlertDialogUtils.show(ProfileViewActivity.this, R.string.image_loading, R.string
-                        .load_image_fail);
-                }
-                break;
-        }
-    }
-
 
     @Override
     protected void onActivityResult(@RequestDef int requestCode, int resultCode, Intent data) {

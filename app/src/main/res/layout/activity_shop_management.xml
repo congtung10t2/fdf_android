@@ -13,18 +13,14 @@
     android:weightSum="2"
     tools:context="com.framgia.foodanddrink.ui.activity.ShopManagementActivity"
     android:orientation="vertical">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/content_food_drink"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
-        android:scrollbars="horizontal"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.3">
         <LinearLayout
             android:orientation="vertical"
+            android:keepScreenOn="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -39,14 +35,14 @@
                 android:layout_gravity="center_horizontal"/>
 
             <AutoCompleteTextView
-                android:text="Shop name"
+                android:hint="Shop name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/input_shop_name"
                 android:layout_gravity="center_horizontal"/>
 
             <AutoCompleteTextView
-                android:text="Shop description"
+                android:hint="Shop description"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:inputType="textMultiLine"
@@ -76,5 +72,11 @@
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </ScrollView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/content_shop_manager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:scrollbars="horizontal"/>
 
 </LinearLayout>

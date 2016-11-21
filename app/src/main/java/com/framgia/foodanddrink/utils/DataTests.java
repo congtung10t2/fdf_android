@@ -8,6 +8,7 @@ import com.framgia.foodanddrink.data.Constants;
 import com.framgia.foodanddrink.data.model.FoodDrinkItem;
 import com.framgia.foodanddrink.data.model.ShopItem;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -15,25 +16,27 @@ import java.util.List;
  * Created by framgia on 26/10/2016.
  */
 public class DataTests {
-    public static void fakeListFoodDrink(List<FoodDrinkItem> listItem) {
+    public static ArrayList<ShopItem> shopItems;
+    public static void init(){
+        shopItems = new ArrayList<ShopItem>();
         Context context = FoodDrinkApplication.getInstance();
         for (int i = 0; i < Constants.NUMBER_OF_TEST; i++) {
-            String title = context.getString(R.string.title_test);
+
+            String title = context.getString(R.string.shop_fake) + "" + i;
             String desc = context.getString(R.string.desc_test);
-            String price = context.getString(R.string.price_test);
-            listItem.add(new FoodDrinkItem(title, desc, price, R.drawable.ic_demo_food));
+            ShopItem shopItem = new ShopItem(title, desc, "null", "null");
+            shopItems.add(shopItem);
+            for (int j = 0; j < Constants.NUMBER_OF_TEST; j++) {
+                String titleProduct = context.getString(R.string.product_title_test) + "" + j;
+                String descProduct = context.getString(R.string.desc_test);
+                String priceProduct = context.getString(R.string.price_test);
+                FoodDrinkItem item = new FoodDrinkItem(titleProduct, descProduct, priceProduct,
+                    "null");
+                item.shopName = title;
+                shopItem.list.add(item);
+            }
         }
     }
-
-    public static void fakeListShop(List<ShopItem> listItem) {
-        Context context = FoodDrinkApplication.getInstance();
-        for (int i = 0; i < Constants.NUMBER_OF_TEST; i++) {
-            String title = context.getString(R.string.title_test);
-            String desc = context.getString(R.string.desc_test);
-            listItem.add(new ShopItem(title, desc, R.drawable.ic_shop_avatar));
-        }
-    }
-
 
     public static Calendar getTimeTest() {
         Calendar calendar = Calendar.getInstance();

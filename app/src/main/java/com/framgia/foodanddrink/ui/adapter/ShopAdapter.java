@@ -1,5 +1,7 @@
 package com.framgia.foodanddrink.ui.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.model.ShopItem;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -56,7 +59,24 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ItemHolder> {
     public void onBindViewHolder(ItemHolder holder, int position) {
         this.holder = holder;
         ShopItem shopItem = shopItems.get(position);
-        holder.itemImage.setImageResource(shopItem.getResImage());
+        File imgFile = new  File(shopItem.getAvatar());
+        if(imgFile.exists()){
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            holder.itemImage.setImageBitmap(myBitmap);
+            return;
+        }
+        holder.itemImage.setImageResource(R.drawable.ic_shop_avatar);
+        if (holder.coverImage != null)
+        {
+            File imageFile = new  File(shopItem.getCoverImage());
+            if(imageFile.exists()){
+                Bitmap myBitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+                holder.coverImage.setImageBitmap(myBitmap);
+                return;
+            }
+            holder.coverImage.setImageResource(R.drawable.ic_shop_avatar);
+        }
+
         holder.itemTitle.setText(shopItem.getTitle());
         holder.itemDescription.setText(shopItem.getDescription());
     }
@@ -74,12 +94,14 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ItemHolder> {
         private ImageView itemImage;
         private TextView itemTitle;
         private TextView itemDescription;
+        private ImageView coverImage;
 
         public ItemHolder(View view) {
             super(view);
-            itemImage = (ImageView) view.findViewById(R.id.image_item_detail);
+            itemImage = (ImageView) view.findViewById(R.id.image_shop_avatar_detail);
             itemTitle = (TextView) view.findViewById(R.id.text_shop_item_title);
             itemDescription = (TextView) view.findViewById(R.id.text_shop_item_desc);
+            coverImage = (ImageView) view.findViewById(R.id.image_item_shop_cover);
         }
     }
 }

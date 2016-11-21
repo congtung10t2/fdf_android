@@ -4,6 +4,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +16,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 import com.framgia.foodanddrink.R;
 import com.framgia.foodanddrink.data.Constants;
 import com.framgia.foodanddrink.service.DailyNotifyService;
+import com.framgia.foodanddrink.ui.activity.CartActivity;
+import com.framgia.foodanddrink.ui.activity.OrdersActivity;
 import com.framgia.foodanddrink.ui.activity.ProfileViewActivity;
+import com.framgia.foodanddrink.ui.activity.ShopManagementActivity;
 import com.framgia.foodanddrink.utils.DataStorage;
 import com.framgia.foodanddrink.utils.DataTests;
+import com.framgia.foodanddrink.utils.UserStorage;
+
+import java.io.File;
 
 /**
  * Created by framgia on 15/11/2016.
@@ -60,6 +69,15 @@ public class FDFNavigationView extends NavigationView
             .cb_push_notify);
         navigationMenu = getMenu();
         headerNavigationView.findViewById(R.id.btn_profile_view).setOnClickListener(this);
+        String imageDirectory = UserStorage.getInstance().getImage();
+        File imgFile = new  File(imageDirectory);
+        ImageView avatar = ((ImageView)headerNavigationView.findViewById(R.id.image_avatar));
+        if(imgFile.exists()){
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            avatar.setImageBitmap(myBitmap);
+            return;
+        }
+        avatar.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_demo_food));
         pushEnable.setOnCheckedChangeListener(this);
 
     }
@@ -140,6 +158,14 @@ public class FDFNavigationView extends NavigationView
             case R.id.nav_account:
                 currentContext.startActivity(new Intent(currentContext, ProfileViewActivity.class));
                 break;
+            case R.id.nav_shop_management:
+                currentContext.startActivity(new Intent(currentContext, ShopManagementActivity.class));
+                break;
+            case R.id.nav_cart:
+                currentContext.startActivity(new Intent(currentContext, CartActivity.class));
+                break;
+            case R.id.nav_order:
+                currentContext.startActivity(new Intent(currentContext, OrdersActivity.class));
             default:
                 break;
         }

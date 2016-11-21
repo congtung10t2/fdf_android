@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="item" type="com.framgia.foodanddrink.data.model.FoodDrinkItem"/>
+            name="item" type="com.framgia.foodanddrink.data.model.ShopItem"/>
     </data>
 
     <FrameLayout
@@ -16,14 +16,14 @@
         android:paddingRight="@dimen/activity_basic_horizontal_margin"
         android:paddingTop="@dimen/activity_basic_vertical_margin"
         tools:context=".ui.activity.FoodDrinkDetailActivity">
-
         <ImageView
-            android:id="@+id/image_item_detail"
-            imageResource="@{item.resImage}"
-            android:layout_width="@dimen/image_item_width"
-            android:layout_height="@dimen/image_item_height"
+            android:id="@+id/image_item_shop_cover"
+            imageResource="@{item.coverImage}"
+            android:layout_width="match_parent"
+            android:layout_height="199dp"
             android:layout_gravity="left|top"
             android:contentDescription="@string/item_detail"/>
+
 
         <TextView
             android:id="@+id/text_item_title"
@@ -34,49 +34,36 @@
             android:textSize="@dimen/item_title_detail_size"
             android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/text_item_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|top"
-            android:layout_marginTop="@dimen/text_item_price_margin_top"
-            android:text="@{item.price}"
-            android:textSize="@dimen/item_price_size"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/text_item_shop_owner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|top"
-            android:layout_marginTop="75dp"
-            android:text="@{item.shopName}"
-            android:textSize="@dimen/item_price_size"
-            android:textStyle="bold"/>
-
-
-        <Button
-            android:id="@+id/btn_add_to_cart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|top"
-            android:layout_marginTop="@dimen/btn_add_to_cart_margin_top"
-            android:text="@string/add_to_cart"/>
-
-        <EditText
-            android:id="@+id/input_comment"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/content_shop_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom"
-            android:layout_marginBottom="@dimen/input_comment_margin_bottom"
-            android:ems="10"
-            android:hint="@string/add_comment"
-            android:inputType="textMultiLine"/>
+            android:layout_marginBottom="10dp"
+            android:scrollbars="horizontal"/>
+
+        <Button
+            android:id="@+id/btn_add_products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginTop="25dp"
+            android:onClick="newProducts"
+            android:text="@string/new_products"/>
+
+        <ImageView
+            android:id="@+id/image_shop_avatar_detail"
+            imageResource="@{item.avatar}"
+            android:layout_width="153dp"
+            android:layout_height="74dp"
+            android:layout_gravity="left|top"
+            android:layout_marginTop="145dp"
+            android:contentDescription="@string/item_detail"/>
 
         <TextView
             android:id="@+id/text_item_desc"
             android:layout_width="@dimen/text_item_desc_width"
-            android:layout_height="@dimen/text_item_desc_height"
+            android:layout_height="54dp"
             android:layout_gravity="left|center_vertical"
             android:layout_marginTop="@dimen/item_desc_margin_top"
             android:text="@{item.description}"

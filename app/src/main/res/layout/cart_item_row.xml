@@ -9,16 +9,17 @@
     <LinearLayout
         style="@style/NonWidthStyle"
         android:layout_marginLeft="@dimen/item_image_left_margin"
+        android:layout_marginTop="@dimen/item_image_top_margin"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:paddingBottom="@dimen/item_padding_bottom"
+        android:paddingTop="@dimen/item_padding_top">
 
         <ImageView
-            android:id="@+id/image_shop_avatar_detail"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:adjustViewBounds="true"
-            android:layout_weight="9.90"/>
+            android:id="@+id/image_item_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"/>
     </LinearLayout>
 
     <LinearLayout
@@ -30,7 +31,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_shop_item_title"
+            android:id="@+id/text_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -38,11 +39,30 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/text_shop_item_desc"
+            android:id="@+id/text_item_desc"
             android:layout_width="match_parent"
-            android:layout_height="86dp"
-            android:inputType="text|textMultiLine"
+            android:layout_height="wrap_content"
             android:gravity="right"/>
 
+        <TextView
+            android:id="@+id/text_item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_shop_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btn_add_to_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:text="Remove"/>
     </LinearLayout>
 </LinearLayout>

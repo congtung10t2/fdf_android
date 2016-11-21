@@ -1,9 +1,16 @@
 package com.framgia.foodanddrink.data.model;
 
 import android.databinding.BindingAdapter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.ImageView;
+
+import com.framgia.foodanddrink.FoodDrinkApplication;
+import com.framgia.foodanddrink.R;
+
+import java.io.File;
 
 /**
  * Created by framgia on 19/10/2016.
@@ -23,9 +30,10 @@ public class FoodDrinkItem implements Parcelable {
     private String title;
     private String description;
     private String price;
-    private int resImage;
+    private String resImage;
+    public String shopName;
 
-    public FoodDrinkItem(String title, String description, String price, int resImage) {
+    public FoodDrinkItem(String title, String description, String price, String resImage) {
         this.title = title;
         this.description = description;
         this.resImage = resImage;
@@ -36,12 +44,20 @@ public class FoodDrinkItem implements Parcelable {
         title = in.readString();
         description = in.readString();
         price = in.readString();
-        resImage = in.readInt();
+        resImage = in.readString();
+        shopName = in.readString();
     }
 
     @BindingAdapter("imageResource")
-    public static void setImageResource(ImageView imageView, int resource) {
-        imageView.setImageResource(resource);
+    public static void setImageResource(ImageView imageView, String resource) {
+        File imgFile = new  File(resource);
+
+        if(imgFile.exists()){
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            imageView.setImageBitmap(myBitmap);
+            return;
+        }
+        imageView.setImageBitmap(BitmapFactory.decodeResource(FoodDrinkApplication.getInstance().getResources(), R.drawable.ic_demo_food));
     }
 
     public String getPrice() {
@@ -60,7 +76,7 @@ public class FoodDrinkItem implements Parcelable {
         this.title = name;
     }
 
-    public int getResImage() {
+    public String getResImage() {
         return resImage;
     }
 
@@ -82,6 +98,7 @@ public class FoodDrinkItem implements Parcelable {
         dest.writeString(title);
         dest.writeString(description);
         dest.writeString(price);
-        dest.writeInt(resImage);
+        dest.writeString(resImage);
+        dest.writeString(shopName);
     }
 }
