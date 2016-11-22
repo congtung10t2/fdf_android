@@ -108,7 +108,7 @@ public class FDFNavigationView extends NavigationView
                 if (isChecked) {
                     alarm.setRepeating(AlarmManager.RTC_WAKEUP,
                         DataTests.getTimeTest().getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, PendingIntent
+                        2000, PendingIntent
                             .getBroadcast(currentContext, 0, new Intent(currentContext, DailyNotifyService.class), 0));
                     return;
                 }

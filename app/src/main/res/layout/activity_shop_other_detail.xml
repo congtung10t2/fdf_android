@@ -32,7 +32,9 @@
             android:layout_gravity="right|top"
             android:text="@{item.title}"
             android:textSize="@dimen/item_title_detail_size"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="210dp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/content_shop_detail"
@@ -48,7 +50,7 @@
             android:layout_width="153dp"
             android:layout_height="74dp"
             android:layout_gravity="left|top"
-            android:layout_marginTop="145dp"
+            android:layout_marginTop="160dp"
             android:contentDescription="@string/item_detail"/>
 
         <TextView
@@ -56,7 +58,7 @@
             android:layout_width="@dimen/text_item_desc_width"
             android:layout_height="54dp"
             android:layout_gravity="left|center_vertical"
-            android:layout_marginTop="@dimen/item_desc_margin_top"
+            android:layout_marginTop="60dp"
             android:text="@{item.description}"
             android:textSize="@dimen/item_desc_size"/>
 
