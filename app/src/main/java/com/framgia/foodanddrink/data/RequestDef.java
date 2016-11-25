@@ -3,7 +3,6 @@ package com.framgia.foodanddrink.data;
 /**
  * Created by framgia on 10/11/2016.
  */
-
 import android.support.annotation.IntDef;
 
 import java.lang.annotation.Retention;

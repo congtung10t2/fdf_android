@@ -22,23 +22,23 @@ public class ShopItem implements Parcelable {
     };
     private String title;
     private String description;
-    private int resImage;
+    private String source;
 
-    public ShopItem(String title, String description, int resImage) {
+    public ShopItem(String title, String description, String source) {
         this.title = title;
         this.description = description;
-        this.resImage = resImage;
+        this.source = source;
     }
 
     protected ShopItem(Parcel in) {
         title = in.readString();
         description = in.readString();
-        resImage = in.readInt();
+        source = in.readString();
     }
 
     @BindingAdapter("imageResource")
-    public static void setImageResource(ImageView imageView, int resource) {
-        imageView.setImageResource(resource);
+    public static void setImageResource(ImageView imageView, String resource) {
+        //TODO: set resource name again
     }
 
     public String getTitle() {
@@ -49,8 +49,8 @@ public class ShopItem implements Parcelable {
         this.title = name;
     }
 
-    public int getResImage() {
-        return resImage;
+    public String getResImage() {
+        return source;
     }
 
     public String getDescription() {
@@ -70,6 +70,6 @@ public class ShopItem implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(description);
-        dest.writeInt(resImage);
+        dest.writeString(source);
     }
 }

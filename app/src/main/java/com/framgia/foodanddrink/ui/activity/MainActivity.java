@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private FDFNavigationView navigationView;
     private BottomNavigationView tabbarNavigation;
-    ViewPager viewPager;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_food_drink);
+        setContentView(R.layout.activity_main);
         initViews();
     }
 
@@ -48,10 +48,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setDrawer(drawer);
         tabbarNavigation = (BottomNavigationView) findViewById(R.id.bottom_bar);
         tabbarNavigation.setOnNavigationItemSelectedListener(this);
-
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new PagerAdapter
-            (getSupportFragmentManager(), 3));
+            (getSupportFragmentManager(), BottomBarDef.values().length));
 
     }
 

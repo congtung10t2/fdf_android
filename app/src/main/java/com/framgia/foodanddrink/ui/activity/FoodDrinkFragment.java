@@ -50,14 +50,13 @@ public class FoodDrinkFragment extends Fragment implements FoodDrinkAdapter
     }
 
     @Override
+    public void onAddToCart(View view, int position) {
+    }
+
+    @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(getContext(), FoodDrinkDetailActivity.class);
         intent.putExtra(Constants.ITEM_INDEX_KEY, foodAndDrinks.get(position));
         startActivity(intent);
-    }
-
-    @Override
-    public void onItemQuickOrder(int position) {
-        //TODO: Send request quick order
     }
 }

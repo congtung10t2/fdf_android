@@ -19,7 +19,6 @@ import java.util.List;
 public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.ItemHolder> {
     private List<FoodDrinkItem> foodDrinkItems;
     private OnItemClickListener itemClickListener;
-    private ItemHolder holder;
 
     public FoodDrinkAdapter(List<FoodDrinkItem> foodDrinkItems) {
         this.foodDrinkItems = foodDrinkItems;
@@ -45,7 +44,6 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
 
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
-        this.holder = holder;
         FoodDrinkItem foodDrinkItem = foodDrinkItems.get(position);
         holder.itemImage.setImageResource(foodDrinkItem.getResImage());
         holder.itemTitle.setText(foodDrinkItem.getTitle());
@@ -54,8 +52,8 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
         final int pos = position;
         holder.btnQuickOrder.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                itemClickListener.onItemQuickOrder(pos);
+            public void onClick(View view) {
+                itemClickListener.onAddToCart(view, pos);
             }
         });
     }
@@ -67,7 +65,7 @@ public class FoodDrinkAdapter extends RecyclerView.Adapter<FoodDrinkAdapter.Item
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
-        void onItemQuickOrder(int position);
+        void onAddToCart(View view, int position);
     }
 
     public static class ItemHolder extends RecyclerView.ViewHolder {
