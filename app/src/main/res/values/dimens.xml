@@ -1,0 +1,47 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_basic_horizontal_margin">16dp</dimen>
+    <dimen name="activity_basic_vertical_margin">50dp</dimen>
+    <dimen name="item_title_size">16sp</dimen>
+    <dimen name="item_padding_top">10dp</dimen>
+    <dimen name="item_padding_bottom">10dp</dimen>
+    <dimen name="content_item_margin_top">20dp</dimen>
+    <dimen name="item_image_top_margin">10dp</dimen>
+    <dimen name="item_image_left_margin">5dp</dimen>
+    <dimen name="content_item_margin_right">10dp</dimen>
+    <dimen name="content_item_margin_left">10dp</dimen>
+    <dimen name="image_item_width">205dp</dimen>
+    <dimen name="image_item_height">156dp</dimen>
+    <dimen name="item_title_detail_size">20sp</dimen>
+    <dimen name="btn_add_to_cart_margin_top">110dp</dimen>
+    <dimen name="text_item_price_margin_top">40dp</dimen>
+    <dimen name="item_price_size">20sp</dimen>
+    <dimen name="item_desc_size">20sp</dimen>
+    <dimen name="item_desc_margin_top">35dp</dimen>
+    <dimen name="text_item_desc_width">356dp</dimen>
+    <dimen name="text_item_desc_height">138dp</dimen>
+    <dimen name="input_comment_margin_bottom">50dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="profile_left_padding">10dp</dimen>
+    <dimen name="profile_top_margin">45dp</dimen>
+    <dimen name="avatar_side_value">100dp</dimen>
+    <dimen name="avatar_top_margin">20dp</dimen>
+    <dimen name="ic_profile_view_side">35dp</dimen>
+    <dimen name="ic_profile_view_margin_left">120dp</dimen>
+    <dimen name="ic_profile_view_margin_top">33dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="edit_profile_side_margin">30dp</dimen>
+    <dimen name="camera_layout_size">50dp</dimen>
+    <dimen name="camera_cover_right_margin">20dp</dimen>
+    <dimen name="camera_avt_left_margin">27dp</dimen>
+    <dimen name="profile_name_layout_padding">20dp</dimen>
+    <dimen name="btn_signin_margin_top">16dp</dimen>
+    <dimen name="zerodp">0dp</dimen>
+    <dimen name="add_btn_layout_margin_top">20dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="product_review_size">200dp</dimen>
+    <dimen name="cb_push_notify_margin_right">30dp</dimen>
+    <dimen name="cb_push_notify_margin_top">75dp</dimen>
+</resources>

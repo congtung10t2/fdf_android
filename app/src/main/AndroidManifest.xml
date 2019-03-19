@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.framgia.foodanddrink"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:name=".FoodDrinkApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.CAMERA"/>
+
+        <uses-feature android:name="android.hardware.camera"/>
+
+        <activity
+            android:name=".ui.activity.FoodDrinkActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.FoodDrinkDetailActivity"/>
+        <activity
+            android:name=".ui.activity.ProfileViewActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.activity.RegisterActivity"/>
+        <activity android:name=".ui.activity.LoginActivity"/>
+        <activity android:name=".ui.activity.ChangePasswordActivity"/>
+        <activity android:name=".ui.activity.NewProductActivity"/>
+
+        <service android:name=".service.DailyNotifyService"/>
+
+    </application>
+
+</manifest>
